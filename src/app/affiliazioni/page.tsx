@@ -175,7 +175,7 @@ export default function Affiliations() {
               <h3 className="text-xl font-semibold mb-2">Quanto dura il cookie di tracciamento?</h3>
               <p className="text-gray-600">
                 Il cookie di tracciamento ha una durata di 30 giorni. Se un utente clicca sul tuo
-                link e completa l'acquisto entro questo periodo, riceverai la commissione.
+                link e completa l&aposacquisto entro questo periodo, riceverai la commissione.
               </p>
             </div>
             <div>
