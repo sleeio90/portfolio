@@ -1,0 +1,194 @@
+// Variabili personalizzate Bootstrap
+$primary: #2563eb;
+$secondary: #475569;
+$success: #16a34a;
+$info: #0891b2;
+$warning: #d97706;
+$danger: #dc2626;
+$light: #f8fafc;
+$dark: #0f172a;
+
+// Variabili personalizzate del tema
+$navbar-height: 80px;
+$hero-min-height: calc(100vh - #{$navbar-height});
+$border-radius: 0.5rem;
+$border-radius-lg: 1rem;
+$box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$transition-base: all 0.3s ease-in-out;
+
+// Font personalizzati
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+$headings-font-weight: 700;
+
+// Importa Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Stili personalizzati
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+  .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: $transition-base;
+    
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.hero-section {
+  min-height: $hero-min-height;
+  background: linear-gradient(135deg, $primary, darken($primary, 15%));
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/hero-pattern.svg') repeat;
+    opacity: 0.1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.card {
+  border: none;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow;
+  }
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.service-card {
+  border-radius: $border-radius-lg;
+  padding: 2rem;
+  height: 100%;
+  background: white;
+  transition: $transition-base;
+  
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+  
+  .icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: $border-radius;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  
+  .quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  
+  .author-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
+
+// Animazioni
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Media queries per la responsività
+@include media-breakpoint-down(lg) {
+  .hero-section {
+    padding: 4rem 0;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .hero-section {
+    padding: 3rem 0;
+  }
+  
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+// Utility classes
+.text-gradient {
+  background: linear-gradient(135deg, $primary, $info);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, $primary, $info);
+}
+
+.shadow-hover {
+  transition: $transition-base;
+  
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}
+
+// Aggiungi stili per i bottoni
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  
+  &.btn-primary {
+    background: linear-gradient(135deg, $primary, darken($primary, 10%));
+    border: none;
+    
+    &:hover {
+      background: linear-gradient(135deg, darken($primary, 5%), darken($primary, 15%));
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.btn-outline-primary {
+    &:hover {
+      background: linear-gradient(135deg, $primary, darken($primary, 10%));
+      border-color: transparent;
+    }
+  }
+}
